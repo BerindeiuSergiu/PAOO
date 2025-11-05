@@ -1,0 +1,3 @@
+/home/bsergiu/PAOO/PAOO/build/CMakeFiles/LoggerApp.dir
+/home/bsergiu/PAOO/PAOO/build/CMakeFiles/edit_cache.dir
+/home/bsergiu/PAOO/PAOO/build/CMakeFiles/rebuild_cache.dir
