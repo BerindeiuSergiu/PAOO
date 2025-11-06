@@ -1,7 +1,7 @@
 #include "LogFile.hpp"
 
 LogFile::LogFile(const std::string& name)
-    : filename(name), stream(new std::ofstream(name, std::ios::app))
+    :filename(name), stream(new std::ofstream("logs/" + name, std::ios::app))
 {
     std::cout << "[Constructor] LogFile created: " << filename << "\n";
 }
@@ -17,7 +17,7 @@ LogFile::~LogFile() {
 
 // copy constructor method -> deep copy
 LogFile::LogFile(const LogFile& other)
-    : filename(other.filename + "_copy"), stream(new std::ofstream(filename, std::ios::app))
+    : filename(other.filename + "_copy"), stream(new std::ofstream("logs/" + filename, std::ios::app))
 {
     std::cout << "[Copy Constructor] Created a copy: " << filename << "\n";
 }

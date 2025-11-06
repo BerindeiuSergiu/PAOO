@@ -1,4 +1,0 @@
-Initial log message.
-Message from moved logger.
-Initial log message.
-Message from moved logger.

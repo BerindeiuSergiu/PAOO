@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/LoggerApp.dir/link.d CMakeFiles/LoggerApp.dir/src/main.cpp.o CMakeFiles/LoggerApp.dir/src/LogFile.cpp.o CMakeFiles/LoggerApp.dir/src/Logger.cpp.o -o LoggerApp
+/usr/bin/c++ CMakeFiles/LoggerApp.dir/src/main.cpp.o CMakeFiles/LoggerApp.dir/src/LogFile.cpp.o CMakeFiles/LoggerApp.dir/src/Logger.cpp.o -o bin/LoggerApp 
