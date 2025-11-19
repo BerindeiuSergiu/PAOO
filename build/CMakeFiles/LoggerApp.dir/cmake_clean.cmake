@@ -3,10 +3,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/LoggerApp.dir/src/LogFile.cpp.o.d"
   "CMakeFiles/LoggerApp.dir/src/Logger.cpp.o"
   "CMakeFiles/LoggerApp.dir/src/Logger.cpp.o.d"
+  "CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.o"
+  "CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.o.d"
   "CMakeFiles/LoggerApp.dir/src/main.cpp.o"
   "CMakeFiles/LoggerApp.dir/src/main.cpp.o.d"
-  "bin/LoggerApp"
-  "bin/LoggerApp.pdb"
+  "LoggerApp"
+  "LoggerApp.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

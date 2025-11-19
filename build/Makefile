@@ -177,6 +177,30 @@ src/Logger.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LoggerApp.dir/build.make CMakeFiles/LoggerApp.dir/src/Logger.cpp.s
 .PHONY : src/Logger.cpp.s
 
+src/TimeStampedLogFile.o: src/TimeStampedLogFile.cpp.o
+.PHONY : src/TimeStampedLogFile.o
+
+# target to build an object file
+src/TimeStampedLogFile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LoggerApp.dir/build.make CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.o
+.PHONY : src/TimeStampedLogFile.cpp.o
+
+src/TimeStampedLogFile.i: src/TimeStampedLogFile.cpp.i
+.PHONY : src/TimeStampedLogFile.i
+
+# target to preprocess a source file
+src/TimeStampedLogFile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LoggerApp.dir/build.make CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.i
+.PHONY : src/TimeStampedLogFile.cpp.i
+
+src/TimeStampedLogFile.s: src/TimeStampedLogFile.cpp.s
+.PHONY : src/TimeStampedLogFile.s
+
+# target to generate assembly for a file
+src/TimeStampedLogFile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LoggerApp.dir/build.make CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.s
+.PHONY : src/TimeStampedLogFile.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -216,6 +240,9 @@ help:
 	@echo "... src/Logger.o"
 	@echo "... src/Logger.i"
 	@echo "... src/Logger.s"
+	@echo "... src/TimeStampedLogFile.o"
+	@echo "... src/TimeStampedLogFile.i"
+	@echo "... src/TimeStampedLogFile.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

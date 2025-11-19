@@ -1,10 +1,9 @@
 #pragma once
 #include "LogFile.hpp"
-#include <vector>
 
 class Logger {
 private:
-    LogFile** files;   // vector de pointeri pe heap
+    LogFile** files;
     int count;
 
 public:
@@ -12,6 +11,10 @@ public:
     ~Logger();
     Logger(const Logger& other);
     Logger(Logger&& other) noexcept;
+
+    Logger& operator=(const Logger& rhs);     // copy assignment
+    Logger& operator=(Logger&& rhs) noexcept; // move assignment
+
     void addLog(const std::string& filename);
     void log(const std::string& message);
 };

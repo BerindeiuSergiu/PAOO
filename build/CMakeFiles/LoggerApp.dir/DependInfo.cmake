@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/user/Public/PAOO/PAOO/src/LogFile.cpp" "CMakeFiles/LoggerApp.dir/src/LogFile.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/LogFile.cpp.o.d"
   "/home/user/Public/PAOO/PAOO/src/Logger.cpp" "CMakeFiles/LoggerApp.dir/src/Logger.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/Logger.cpp.o.d"
+  "/home/user/Public/PAOO/PAOO/src/TimeStampedLogFile.cpp" "CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.o.d"
   "/home/user/Public/PAOO/PAOO/src/main.cpp" "CMakeFiles/LoggerApp.dir/src/main.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/main.cpp.o.d"
   )
 
