@@ -1,36 +1,37 @@
 #include "TimeStampedLogFile.hpp"
-#include <iostream>
 
-//basic cnst
-TimeStampedLogFile::TimeStampedLogFile(const std::string& name)
-    : LogFile(name), addTimestamp(false)
+#include <chrono>
+#include <ctime>
+#include <iomanip>
+#include <sstream>
+
+TimeStampedLogFile::TimeStampedLogFile(std::string name, bool withTimestamp)
+    : LogFile(std::move(name)),
+      addTimestamp(withTimestamp)
 {
-    std::cout << "[Constructor] TimeStampedLogFile created (no timestamp flag)\n";
+    std::cout << "[TimeStampedLogFile ctor] withTimestamp=" 
+              << std::boolalpha << addTimestamp << "\n";
 }
 
+void TimeStampedLogFile::write(const std::string& message) {
+    if (!addTimestamp) {
+        LogFile::write(message);
+        return;
+    }
 
-TimeStampedLogFile::TimeStampedLogFile(const std::string& name, bool timestamp)
-    : LogFile(name), addTimestamp(timestamp)
-{
-    std::cout << "[Constructor] TimeStampedLogFile created with timestamp=" 
-              << (timestamp ? "true" : "false") << "\n";
-}
+    using clock = std::chrono::system_clock;
+    auto now    = clock::now();
+    std::time_t t = clock::to_time_t(now);
 
-// copy cnstr
-TimeStampedLogFile::TimeStampedLogFile(const TimeStampedLogFile& other)
-    : LogFile(other),                     // copying base class parts (i12)
-      addTimestamp(other.addTimestamp)
-{
-    std::cout << "[Copy Constructor] TimeStampedLogFile\n";
-}
+    std::tm tm{};
+#if defined(_WIN32)
+    localtime_s(&tm, &t);
+#else
+    localtime_r(&t, &tm);
+#endif
 
-// copy assignment (i10, i11, i12)
-TimeStampedLogFile& TimeStampedLogFile::operator=(const TimeStampedLogFile& rhs)
-{
-    if (this == &rhs) return *this;       // self assignment
+    std::ostringstream oss;
+    oss << '[' << std::put_time(&tm, "%Y-%m-%d %H:%M:%S") << "] " << message;
 
-    LogFile::operator=(rhs);              // copying base class parts
-    addTimestamp = rhs.addTimestamp;
-
-    return *this;                         // return *this
+    LogFile::write(oss.str());
 }

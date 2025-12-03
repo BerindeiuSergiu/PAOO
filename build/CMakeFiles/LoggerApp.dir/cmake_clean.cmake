@@ -1,8 +1,11 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/LoggerApp.dir/link.d"
   "CMakeFiles/LoggerApp.dir/src/LogFile.cpp.o"
   "CMakeFiles/LoggerApp.dir/src/LogFile.cpp.o.d"
   "CMakeFiles/LoggerApp.dir/src/Logger.cpp.o"
   "CMakeFiles/LoggerApp.dir/src/Logger.cpp.o.d"
+  "CMakeFiles/LoggerApp.dir/src/ThreadSafeLogger.cpp.o"
+  "CMakeFiles/LoggerApp.dir/src/ThreadSafeLogger.cpp.o.d"
   "CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.o"
   "CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.o.d"
   "CMakeFiles/LoggerApp.dir/src/main.cpp.o"

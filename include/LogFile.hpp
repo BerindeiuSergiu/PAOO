@@ -1,22 +1,27 @@
 #pragma once
-#include <iostream>
+
 #include <fstream>
 #include <string>
+#include <iostream>
 
 class LogFile {
-private:
-    std::string filename;
-    std::ofstream* stream; 
-
 public:
-    LogFile(const std::string& name);
+    explicit LogFile(std::string name);
     ~LogFile();
-    LogFile(const LogFile& other);
-    LogFile(LogFile&& other) noexcept;
 
-    LogFile& operator=(const LogFile& rhs);     // copy assignment
-    LogFile& operator=(LogFile&& rhs) noexcept; // move assignment
+    // unique - copie interzista
+    LogFile(const LogFile&) = delete;
+    LogFile& operator=(const LogFile&) = delete;
+
+    // poti muta
+    LogFile(LogFile&& other) noexcept;
+    LogFile& operator=(LogFile&& other) noexcept;
 
     void write(const std::string& message);
-    std::string getName() const { return filename; }
+
+    const std::string& name() const noexcept { return filename; }
+
+private:
+    std::string filename;
+    std::ofstream stream;
 };

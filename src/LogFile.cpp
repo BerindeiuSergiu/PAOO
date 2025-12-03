@@ -1,81 +1,48 @@
 #include "LogFile.hpp"
 
-// constructor
-LogFile::LogFile(const std::string& name)
-    : filename(name), stream(new std::ofstream("logs/" + name, std::ios::app))
+#include <stdexcept>
+
+LogFile::LogFile(std::string name)
+    : filename(std::move(name)),
+      stream("logs/" + filename, std::ios::app)
 {
-    std::cout << "[Constructor] LogFile created: " << filename << "\n";
+    std::cout << "[LogFile ctor] Opening: " << filename << "\n";
+    if (!stream.is_open()) {
+        throw std::runtime_error("Cannot open log file: " + filename);
+    }
 }
 
-// destructor
 LogFile::~LogFile() {
-    std::cout << "[Destructor] Closing file: " << filename << "\n";
-    if (stream) {
-        if (stream->is_open()) stream->close();
-        delete stream;
-    }
+    std::cout << "[LogFile dtor] Closing: " << filename << "\n";
 }
 
-// deep copy constructor
-LogFile::LogFile(const LogFile& other)
-    : filename(other.filename + "_copy"),
-      stream(new std::ofstream("logs/" + filename, std::ios::app))
-{
-    std::cout << "[Copy Constructor] Created copy: " << filename << "\n";
-}
-
-// move constructor
+// move cnstor
 LogFile::LogFile(LogFile&& other) noexcept
-    : filename(std::move(other.filename)), stream(other.stream)
+    : filename(std::move(other.filename)),
+      stream(std::move(other.stream))
 {
-    std::cout << "[Move Constructor] Moving LogFile " << filename << "\n";
-    other.stream = nullptr;
+    std::cout << "[LogFile move ctor] Moving: " << filename << "\n";
 }
 
-// copy_assignment
-LogFile& LogFile::operator=(const LogFile& rhs)
-{
+// move assign
+LogFile& LogFile::operator=(LogFile&& other) noexcept {
+    if (this != &other) {
+        std::cout << "[LogFile move assign] " << filename << " <- " << other.filename << "\n";
 
-    if (this == &rhs) return *this; // self assignment
+        if (stream.is_open())
+            stream.close();
 
-    std::cout << "[Copy Assignment] Assigning LogFile\n";
-
-    // delete existing stream
-    if (stream) {
-        if (stream->is_open()) stream->close();
-        delete stream;
+        filename = std::move(other.filename);
+        stream   = std::move(other.stream);
     }
-
-    //copyinh all parts
-    filename = rhs.filename + "_copy_assign";
-    stream = new std::ofstream("logs/" + filename, std::ios::app);
-
-    return *this;
-}
-
-//move assignment
-LogFile& LogFile::operator=(LogFile&& rhs) noexcept
-{
-    if (this == &rhs) return *this;
-
-    std::cout << "[Move Assignment] Moving LogFile\n";
-
-    // destroy current
-    if (stream) {
-        if (stream->is_open()) stream->close();
-        delete stream;
-    }
-
-    filename = std::move(rhs.filename);
-    stream = rhs.stream;
-
-    rhs.stream = nullptr;
-
     return *this;
 }
 
 void LogFile::write(const std::string& message) {
-    if (stream && stream->is_open()) {
-        *stream << message << std::endl;
+    if (!stream.is_open()) {
+        throw std::runtime_error("Writing to closed log file: " + filename);
     }
+
+    stream << message << '\n';
+    stream.flush();
 }

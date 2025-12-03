@@ -1,15 +1,21 @@
 #pragma once
-#include "LogFile.hpp"      
-#include <string>           
-#include <iostream>         
+#include "LogFile.hpp"
+#include <string>
 
 class TimeStampedLogFile : public LogFile {
+public:
+    explicit TimeStampedLogFile(std::string name,
+                                bool withTimestamp = true);
+
+
+    TimeStampedLogFile(const TimeStampedLogFile&) = delete;
+    TimeStampedLogFile& operator=(const TimeStampedLogFile&) = delete;
+
+    TimeStampedLogFile(TimeStampedLogFile&&) noexcept = default;
+    TimeStampedLogFile& operator=(TimeStampedLogFile&&) noexcept = default;
+
+    void write(const std::string& message);
+
 private:
     bool addTimestamp;
-
-public:
-    TimeStampedLogFile(const std::string& name, bool timestamp);  
-    TimeStampedLogFile(const std::string& name);                   
-    TimeStampedLogFile(const TimeStampedLogFile& other);           // copy constructor (i12)
-    TimeStampedLogFile& operator=(const TimeStampedLogFile& rhs);  // copy assignment (i10, i11, i12)
 };

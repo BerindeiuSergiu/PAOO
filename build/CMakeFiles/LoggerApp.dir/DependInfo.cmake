@@ -8,10 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/user/Public/PAOO/PAOO/src/LogFile.cpp" "CMakeFiles/LoggerApp.dir/src/LogFile.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/LogFile.cpp.o.d"
-  "/home/user/Public/PAOO/PAOO/src/Logger.cpp" "CMakeFiles/LoggerApp.dir/src/Logger.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/Logger.cpp.o.d"
-  "/home/user/Public/PAOO/PAOO/src/TimeStampedLogFile.cpp" "CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.o.d"
-  "/home/user/Public/PAOO/PAOO/src/main.cpp" "CMakeFiles/LoggerApp.dir/src/main.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/main.cpp.o.d"
+  "/home/bsergiu/Public/backup_paoo/src/LogFile.cpp" "CMakeFiles/LoggerApp.dir/src/LogFile.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/LogFile.cpp.o.d"
+  "/home/bsergiu/Public/backup_paoo/src/Logger.cpp" "CMakeFiles/LoggerApp.dir/src/Logger.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/Logger.cpp.o.d"
+  "/home/bsergiu/Public/backup_paoo/src/ThreadSafeLogger.cpp" "CMakeFiles/LoggerApp.dir/src/ThreadSafeLogger.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/ThreadSafeLogger.cpp.o.d"
+  "/home/bsergiu/Public/backup_paoo/src/TimeStampedLogFile.cpp" "CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/TimeStampedLogFile.cpp.o.d"
+  "/home/bsergiu/Public/backup_paoo/src/main.cpp" "CMakeFiles/LoggerApp.dir/src/main.cpp.o" "gcc" "CMakeFiles/LoggerApp.dir/src/main.cpp.o.d"
+  "" "LoggerApp" "gcc" "CMakeFiles/LoggerApp.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

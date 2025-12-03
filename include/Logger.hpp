@@ -1,20 +1,29 @@
 #pragma once
+
 #include "LogFile.hpp"
+#include "TimeStampedLogFile.hpp"
+
+#include <memory>
+#include <vector>
+#include <string>
+
 
 class Logger {
-private:
-    LogFile** files;
-    int count;
-
 public:
-    Logger();
-    ~Logger();
-    Logger(const Logger& other);
-    Logger(Logger&& other) noexcept;
+    Logger()  = default;
+    ~Logger() = default;
 
-    Logger& operator=(const Logger& rhs);     // copy assignment
-    Logger& operator=(Logger&& rhs) noexcept; // move assignment
+    // copy - intezis
+    Logger(const Logger&) = delete;
+    Logger& operator=(const Logger&) = delete;
 
-    void addLog(const std::string& filename);
+    Logger(Logger&&) noexcept = default;
+    Logger& operator=(Logger&&) noexcept = default;
+
+    // add log file
+void addLog(const std::string& filename);
     void log(const std::string& message);
+
+private:
+    std::vector<std::unique_ptr<LogFile>> files;
 };

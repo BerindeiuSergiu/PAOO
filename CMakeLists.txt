@@ -10,4 +10,5 @@ add_executable(LoggerApp
     src/LogFile.cpp
     src/Logger.cpp
     src/TimeStampedLogFile.cpp
+    src/ThreadSafeLogger.cpp
 )
